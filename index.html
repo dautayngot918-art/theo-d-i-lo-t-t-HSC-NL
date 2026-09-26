@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Công cụ Hỗ trợ Lâm sàng ICU Nhi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ICU Nhi Khoa</h1>
+      <p class="subtitle">Bảng tính liều cấp cứu & Thông số hồi sức</p>
+    </header>
+
+    <main>
+      <!-- Nhập thông tin bệnh nhi -->
+      <section class="patient-info">
+        <label for="weight">Cân nặng bệnh nhi (kg):</label>
+        <div class="input-group">
+          <input type="number" id="weight" step="0.1" placeholder="Nhập số kg (vd: 12.5)" />
+          <button id="btn-calc" onclick="calculateICU()">Tính toán</button>
+        </div>
+      </section>
+
+      <!-- Kết quả hiển thị tức thì -->
+      <section id="results" class="results-grid" style="display: none;">
+        <div class="card emergency">
+          <h3>Thuốc Cấp Cứu (Hồi sinh tim phổi)</h3>
+          <ul>
+            <li><strong>Adrenaline (1:10.000):</strong> <span id="adren-dose">0</span> ml IV/IO (0.01 mg/kg)</li>
+            <li><strong>Số điện giải Shock điện khử rung:</strong> <span id="defib-dose">0</span> J (2 J/kg)</li>
+          </ul>
+        </div>
+
+        <div class="card airway">
+          <h3>Đường thở & Dụng cụ</h3>
+          <ul>
+            <li><strong>Cỡ ống Nội khí quản (Có bóng chèn):</strong> Tham khảo bảng tuổi hoặc (Tuổi/4)+3.5</li>
+            <li><strong>Thể tích khí lưu thông Vt (6-8 ml/kg):</strong> <span id="vt-dose">0</span> ml</li>
+          </ul>
+        </div>
+
+        <div class="card fluid">
+          <h3>Chống Sốc / Bù Dịch Nhanh</h3>
+          <ul>
+            <li><strong>Bolu Điện giải (10-20 ml/kg):</strong> <span id="fluid-dose">0</span> ml (truyền tĩnh mạch trong 15-30 phút)</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
